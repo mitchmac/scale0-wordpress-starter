@@ -1,10 +1,9 @@
 exports.validate = function(response) {
-    if (response.status === 500 && (
+    if (
         !process.env['SCALE0_DB_NAME'] || 
         !process.env['SCALE0_DB_USER'] ||
         !process.env['SCALE0_DB_PASSWORD'] ||
         !process.env['SCALE0_DB_HOST']
-        )
     ) {
 
         if (process.env['SITE_NAME']) {
@@ -25,7 +24,7 @@ exports.validate = function(response) {
             SCALE0_DB_HOST
            </code>`
         + '<p>Then <strong>remember to redeploy your site at Vercel or Netlify</strong> for the environment variables to be updated for the site.</p>';
-        
+
         return {
             statusCode: 500,
             headers: response.headers,

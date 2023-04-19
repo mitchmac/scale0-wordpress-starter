@@ -86,6 +86,14 @@ define( 'WP_DEBUG', false );
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL );
 $_SERVER['HTTPS'] = 'on';
 
+if (isset($_ENV['SCALE0_S3_KEY_ID']) && isset($_ENV['SCALE0_S3_ACCESS_KEY'])) {
+	define( 'AS3CF_SETTINGS', serialize( array(
+        'provider' => 'aws',
+        'access-key-id' => $_ENV['SCALE0_S3_KEY_ID'],
+        'secret-access-key' => $_ENV['SCALE0_S3_ACCESS_KEY'],
+) ) );
+}
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

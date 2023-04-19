@@ -94,6 +94,8 @@ if (isset($_ENV['SCALE0_S3_KEY_ID']) && isset($_ENV['SCALE0_S3_ACCESS_KEY'])) {
 ) ) );
 }
 
+@ini_set( 'upload_max_size' , '6M' );
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

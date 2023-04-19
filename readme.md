@@ -15,10 +15,15 @@ SCALE0_DB_USER
 SCALE0_DB_PASSWORD
 SCALE0_DB_HOST
 ```
+4. (optional) File and media uploads can be enabled using the included WP Offload Media Lite for Amazon S3 plugin. S3 setup details can be found [here](https://deliciousbrains.com/wp-offload-media/doc/amazon-s3-quick-start-guide/). The wp-config.php file is setup to use the following environment variables for use by the plugin:
+```
+SCALE0_S3_KEY_ID
+SCALE0_S3_ACCESS_KEY
+```
 
 ## Structure
 - WordPress and its files are in the ```/wp``` directory. You can add plugins or themes there in their respective directories in ```wp-content```
 - `netlify.toml` or `vercel.json` are what directs all requests to be served by the file in `api/index.js`
 
 ## Gotchas
-- WordPress + the PHP files included by Scale0 take up about 43MB. This puts the deployment size close to the 50MB limit for serverless functions.
+- WordPress + the PHP files included by Scale0 take up about 40MB. This puts the deployment size close to the 50MB limit for serverless functions.

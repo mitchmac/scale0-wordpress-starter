@@ -4,6 +4,6 @@
   "description": "",
   "license": "MIT",
   "dependencies": {
-    "scale0": "^0.1.2"
+    "scale0": "^0.1.4"
   }
 }

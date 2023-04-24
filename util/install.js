@@ -1,9 +1,9 @@
 exports.validate = function(response) {
     if (
-        !process.env['SCALE0_DB_NAME'] || 
-        !process.env['SCALE0_DB_USER'] ||
-        !process.env['SCALE0_DB_PASSWORD'] ||
-        !process.env['SCALE0_DB_HOST']
+        !process.env['DATABASE'] || 
+        !process.env['USERNAME'] ||
+        !process.env['PASSWORD'] ||
+        !process.env['HOST']
     ) {
 
         if (process.env['SITE_NAME']) {
@@ -18,10 +18,10 @@ exports.validate = function(response) {
         + `<p>Then you'll need to populate the environment variables for your site at Vercel or Netlify (<a href="${dashboardLink}">dashboard</a>)`
         + '<p>The required variables are:</p>'
         + `<pre><code>
-            SCALE0_DB_NAME
-            SCALE0_DB_USER
-            SCALE0_DB_PASSWORD
-            SCALE0_DB_HOST
+            DATABASE
+            USERNAME
+            PASSWORD
+            HOST
            </code></pre>`
         + '<p>Then <strong>remember to redeploy your site at Vercel or Netlify</strong> for the environment variables to be updated for the site.</p>';
 

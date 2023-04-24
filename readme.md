@@ -10,10 +10,10 @@ Serverless WordPress on Vercel or Netlify
 2. Setup a MySQL database for WordPress to use. [PlanetScale](https://planetscale.com/) is a great option with a free-tier.
 3. Update environment variables for your project in Vercel or Netlify with the database credentials. These are used by wp-config.php. The environment variables are:
 ```
-SCALE0_DB_NAME
-SCALE0_DB_USER
-SCALE0_DB_PASSWORD
-SCALE0_DB_HOST
+DATABASE
+USERNAME
+PASSWORD
+HOST
 ```
 4. (optional) File and media uploads can be enabled using the included WP Offload Media Lite for Amazon S3 plugin. S3 setup details can be found [here](https://deliciousbrains.com/wp-offload-media/doc/amazon-s3-quick-start-guide/). The wp-config.php file is setup to use the following environment variables for use by the plugin:
 ```

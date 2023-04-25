@@ -1,5 +1,7 @@
 # Scale0 WordPress Starter
-Serverless WordPress on Vercel or Netlify
+Serverless WordPress on Vercel or Netlify.
+
+World class affordable (free) hosting for your WordPress blog, portfolio or anything you can imagine.
 
 | Netlify | Vercel |
 | --- | --- |
@@ -7,7 +9,7 @@ Serverless WordPress on Vercel or Netlify
 
 ## Setup
 1. Deploy this repository to Vercel or Netlify
-2. Setup a MySQL database for WordPress to use. [PlanetScale](https://planetscale.com/) is a great option with a free-tier.
+2. Setup a MySQL database for WordPress to use. [PlanetScale](https://planetscale.com/) is a great option with a free tier.
 3. Update environment variables for your project in Vercel or Netlify with the database credentials. These are used by wp-config.php. The environment variables are:
 ```
 DATABASE

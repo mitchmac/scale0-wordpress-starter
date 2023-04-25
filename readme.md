@@ -35,3 +35,6 @@ SCALE0_S3_ACCESS_KEY
 
 ## Gotchas
 - WordPress + the PHP files included by Scale0 take up about 40MB. This puts the deployment size close to the 50MB limit for serverless functions.
+
+## License
+GNU General Public License v3.0

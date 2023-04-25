@@ -1,0 +1,22 @@
+service: scale0-wordpress-starter
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  httpApi:
+    payload: '2.0'
+
+functions:
+  requestHandler:
+    handler: api/index.handler
+    memorySize: 1024
+    timeout: 15
+    events:
+      - httpApi:
+          method: any
+          path: /{proxy+}
+    environment:
+      #DATABASE: ''
+      #USERNAME: ''
+      #PASSWORD: Don't set this if you'll be commiting the file, instead use the AWS console or another method like Parameter Store
+      #HOST: ''

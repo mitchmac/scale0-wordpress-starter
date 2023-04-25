@@ -9,8 +9,11 @@ exports.validate = function(response) {
         if (process.env['SITE_NAME']) {
             dashboardLink = `https://app.netlify.com/sites/${process.env['SITE_NAME']}/settings/env`;
         }
-        else {
+        else if (process.env['VERCEL']) {
             dashboardLink = 'https://vercel.com/dashboard';
+        }
+        else {
+          dashboardLink = 'https://console.aws.amazon.com/console/home';
         }
 
         let message = "<p>It appears that the required environment variables for the WordPress database aren't setup.</p>"
@@ -27,7 +30,9 @@ exports.validate = function(response) {
 
         return {
             statusCode: 500,
-            headers: response.headers,
+            headers: {
+              'content-type': 'text/html; charset=utf-8'
+            },
             body: loadTemplate(message)
         }
     }

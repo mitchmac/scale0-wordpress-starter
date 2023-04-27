@@ -1978,7 +1978,7 @@ class wpdb {
 	 */
 	public function db_connect( $allow_bail = true ) {
 		$this->is_mysql = true;
-
+		error_log('db_connect');
 		/*
 		 * Deprecated in 3.9+ when using MySQLi. No equivalent
 		 * $new_link parameter exists for mysqli_* functions.
@@ -2019,6 +2019,7 @@ class wpdb {
 				mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
 			} else {
 				// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+				error_log('mysqli_real_connect');
 				@mysqli_real_connect( $this->dbh, 'p:' . $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
 			}
 

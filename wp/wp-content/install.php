@@ -5,11 +5,16 @@ function wp_install($blog_title, $user_name, $user_email, $is_public, $deprecate
         _deprecated_argument(__FUNCTION__, '2.6.0');
     }
 
+    $start = time();
+
     wp_check_mysql_version();
     wp_cache_flush();
     make_db_current_silent();
+    error_log('A: ' . time() - $start);
     populate_options();
+    error_log('B: ' . time() - $start);
     populate_roles();
+    error_log('C: ' . time() - $start);
 
     update_option('blogname', $blog_title);
     update_option('admin_email', $user_email);
@@ -63,8 +68,11 @@ function wp_install($blog_title, $user_name, $user_email, $is_public, $deprecate
         $user->user_url = $guessurl;
         wp_update_user($user);
     }
+    error_log('D: ' . time() - $start);
 
     wp_install_defaults($user_id);
+
+    error_log('E: ' . time() - $start);
 
     // We will skip this to speed up the install.
     // wp_install_maybe_enable_pretty_permalinks();
@@ -74,6 +82,8 @@ function wp_install($blog_title, $user_name, $user_email, $is_public, $deprecate
     }
 
     flush_rewrite_rules();
+
+    error_log('F: ' . time() - $start);
 
     // We will skip this to speed up the install.
     // wp_new_blog_notification( $blog_title, $guessurl, $user_id, ( $email_password ? $user_password : __( 'The password you chose during installation.' ) ) );
@@ -88,6 +98,8 @@ function wp_install($blog_title, $user_name, $user_email, $is_public, $deprecate
      * @param WP_User $user The site owner.
      */
     do_action('wp_install', $user);
+
+    error_log('G: ' . time() - $start);
 
     return array(
         'url'              => $guessurl,

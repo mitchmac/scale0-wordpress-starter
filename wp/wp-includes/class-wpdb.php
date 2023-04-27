@@ -2020,7 +2020,7 @@ class wpdb {
 			} else {
 				// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 				error_log('mysqli_real_connect');
-				@mysqli_real_connect( $this->dbh, 'p:' . $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
+				@mysqli_real_connect( $this->dbh, '' . $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
 			}
 
 			if ( $this->dbh->connect_errno ) {

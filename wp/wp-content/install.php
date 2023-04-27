@@ -8,9 +8,11 @@ function wp_install($blog_title, $user_name, $user_email, $is_public, $deprecate
     $start = time();
 
     wp_check_mysql_version();
+    error_log('A1: ' . time() - $start);
     wp_cache_flush();
+    error_log('A2: ' . time() - $start);
     make_db_current_silent();
-    error_log('A: ' . time() - $start);
+    error_log('A3: ' . time() - $start);
     populate_options();
     error_log('B: ' . time() - $start);
     populate_roles();
